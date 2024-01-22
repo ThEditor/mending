@@ -2,7 +2,7 @@ import google.generativeai as genai
 import pathlib
 import textwrap
 
-GOOGLE_API_KEY = "AIzaSyBRLqlGl9B4tiyHNWXP4F6W7GVm7503AlE"
+GOOGLE_API_KEY = TOKEN
 
 genai.configure(api_key=GOOGLE_API_KEY)
 
