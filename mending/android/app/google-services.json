@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "530864932696",
+    "project_id": "mending-1419c",
+    "storage_bucket": "mending-1419c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530864932696:android:5ee2d44f806f73fd7a872d",
+        "android_client_info": {
+          "package_name": "com.example.mending"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpDKQ3xQfg2oZ7PBqlyk6FGSGFcEVAdPU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -41,3 +41,5 @@ app.*.map.json
 /mending/android/app/debug
 /mending/android/app/profile
 /mending/android/app/release
+
+*.env
