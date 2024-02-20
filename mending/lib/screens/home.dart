@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -5,6 +6,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Rehab Home'),
+        backgroundColor: Colors.green,
+      ),
+      body: Center(
+        child:
+            Text(FirebaseAuth.instance.currentUser?.phoneNumber ?? 'No User'),
+      ),
+    );
   }
 }

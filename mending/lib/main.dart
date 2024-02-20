@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:mending/landing.dart';
+import 'package:mending/screens/details.dart';
 import 'package:mending/screens/home.dart';
 import 'package:mending/screens/login.dart';
 import 'package:mending/screens/otp.dart';
@@ -33,6 +34,7 @@ class MainApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/otp': (context) => const OtpScreen(),
+        '/details': (context) => const DetailsScreen(),
       },
     );
   }

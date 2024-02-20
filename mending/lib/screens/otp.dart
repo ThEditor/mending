@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -201,11 +202,28 @@ class _OtpScreenState extends State<OtpScreen> {
                         verificationId: args.verificationId, smsCode: otp);
                 FirebaseAuth.instance
                     .signInWithCredential(phoneAuthCredential)
-                    .then((value) => Navigator.pushNamedAndRemoveUntil(
-                        context, '/home', (route) => false))
-                    .catchError((error) {
+                    .then((value) {
+                  FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(value.user?.uid)
+                      .get()
+                      .then((DocumentSnapshot documentSnapshot) {
+                    if (documentSnapshot.exists) {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/home', (route) => false);
+                    } else {
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/details', (route) => false);
+                    }
+                  });
+                }).catchError((error) {
                   setState(() {
-                    errorMessage = 'Invalid OTP';
+                    if (error is FirebaseAuthException &&
+                        error.code == 'invalid-verification-code') {
+                      errorMessage = 'Invalid OTP';
+                    } else {
+                      errorMessage = 'Unknown Error';
+                    }
                   });
                   return null;
                 });
